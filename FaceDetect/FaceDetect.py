@@ -16,7 +16,7 @@ import dlib
 
 # In[2]:
 
-
+# Sử dụng bộ lọc harcascade
 faceCasCade = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
 cap = cv2.VideoCapture(0)
 
@@ -61,7 +61,9 @@ for img1 in os.listdir(pathFolder):
     #img = cv2.equalizeHist(img)
     #img = cv2.resize(img,(400,400))
     img = cv2.resize(img,(400,int(img.shape[0]*400/img.shape[1])))
+    # Covert ảnh từ BGR sang YUV
     img_yuv = cv2.cvtColor(img, cv2.COLOR_BGR2YUV)
+    # Trích xuất phần đặc trưng trong ảnh (các, phần tử quan tronjg)
     img_yuv[:,:,0] = cv2.equalizeHist(img_yuv[:,:,0])
 
 # convert the YUV image back to RGB format
