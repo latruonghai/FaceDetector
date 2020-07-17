@@ -45,14 +45,14 @@ def rotation(img, angle):
  def detectFace():
     # Doc hinh
     #hai = ['./MTPs/MTP'+str(i)+'.jpg' for i in range(1,188) if i not in [89,152]]
-    files = input("Nhap ten Folder : ")
+    files = input("Nhập tên folder chứa ảnh mặt đã cắt : ")
     createf = files.replace(".com","")
-    name_file = input("Nhập tên file đi nào: ")
-    name_files = input("Nhập tên file cần test ")
+    name_file = input("Nhập tên file đi nào: ") # Nhập tên files muốn lưu
+    name_folder = input("Nhập tên folder chứa ảnh cần cắt: ") # Nhập tên folder dẫn đến thư mục chứa ảnh cần cắt mặt
     sampleNum = 0
-    path = '/home/lahai/Downloads/MyTam/'
-    path_dir = "/home/lahai/Desktop/OpenCV"
-    pathFolder = path + name_files
+    path = '/home/lahai/Downloads/MyTam/' # Đường dẫn dẫn đến thư mục muốn cắt ảnh mặt
+    path_dir = "paths" # Đường dẫn đến thư mục muốn lưu ảnh mặt
+    pathFolder = path + name_folder # Đường dẫn đến thư mục muốn cắt ảnh
     for img1 in os.listdir(pathFolder):
         file_name = pathFolder + '/'+img1
         img = cv2.imread(file_name)
